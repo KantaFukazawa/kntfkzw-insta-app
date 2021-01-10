@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   resources :accounts, only: [:show] do
   end
+
+  resource :profile, only: [:show, :update]
 end
