@@ -1,0 +1,17 @@
+.container
+  .profile_header
+    %a(href="#") ←
+    .your_name
+      = @user.name
+  .profile_img
+    = image_tag 'default-avatar.png', class: 'your_img'
+  %ul.your_status
+    %li
+      %p 44
+      %h3 Posts
+    %li
+      %p 100
+      %h3 Followers
+    %li
+      %p 44
+      %h3 Followings

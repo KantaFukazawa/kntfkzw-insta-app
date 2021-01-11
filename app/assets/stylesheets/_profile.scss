@@ -1,0 +1,70 @@
+.profile_header {
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0 0 0 12px;
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #333A42;
+  }
+}
+
+
+
+.your_name {
+  display: inline-block;
+  padding: 48px 0 0 128px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+.profile_img {
+  text-align: center;
+}
+
+.your_img {
+  padding: 36px 0 0 0;
+  width: 76.88px;
+  height: 76.88px;
+  text-align: center;
+}
+
+.your_status {
+  display: flex;
+  justify-content: space-between;
+  padding-inline-start: 0;
+  width: 90%;
+  padding: 43px 0 0 0;
+  margin: 0 auto;
+  li {
+    list-style: none;
+    text-align: center;
+    
+    p {
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      text-align: left;
+      padding: 0 0 0 53px;
+    }
+
+    h3 {
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 21px;
+      text-align: left;
+      padding: 0 0 0 40px;
+      color: #9e9e9e;
+    }
+  }
+}
