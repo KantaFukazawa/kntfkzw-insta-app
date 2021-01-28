@@ -28,12 +28,14 @@
   text-align: center;
 }
 
-.your_img {
-  padding: 36px 0 0 0;
+#your-img {
+  margin: 36px 0 0 0;
   width: 76.88px;
   height: 76.88px;
   text-align: center;
-}
+  object-fit:cover;
+  border-radius: 50%;
+  }
 
 .your_status {
   display: flex;

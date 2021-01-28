@@ -2,9 +2,27 @@
   .profile_header
     %a(href="#") ←
     .your_name
-      = @user.name
+      = current_user.name
   .profile_img
-    = image_tag 'default-avatar.png', class: 'your_img'
+    - if current_user.profile&.avatar&.attached?
+      = image_tag current_user.profile.avatar, id: 'your-img'
+    - else  
+      = image_tag 'default-avatar.png', id: 'your-img'
+  #overlay
+    #modalWindow
+      .modal-message-box
+        = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+          .form_item 
+            = f.label :nickname, 'Your Name', class: 'form_ttl'
+          .form_item
+            = f.text_field :nickname, class: 'form_txt'
+          .form_item 
+            = f.label :avatar, 'Your Image', class: 'form_ttl'
+          .form_item  
+            = f.file_field :avatar, class: 'form_avatar'
+
+          = f.submit '保存', class: 'btn_primary', id: 'submit-btn'
+          %button#modal-close-btn キャンセル
   %ul.your_status
     %li
       %p 44
