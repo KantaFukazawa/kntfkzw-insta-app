@@ -16,3 +16,18 @@ require('jquery')
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener(
+  "DomContentLoaded", e => {
+    let modal_open = document.getElementById("your-img");
+    modal_open.onclick = function () {
+      $('#overlay').fadeIn();
+      document.getElementById('modal-close-btn').onclick = function () {
+        $('#overlay').fadeOut();
+      };
+      document.getElementById("submit-btn").onclick = function () {
+        $('#overlay').fadeOut();
+      };
+    };
+  },
+);
