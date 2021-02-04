@@ -2,7 +2,10 @@
   .profile_header
     %a(href="#") ←
     .your_name
-      = current_user.name
+      - if @profile&.nickname&.present?
+        = @profile&.nickname
+      - else
+        = current_user.name
   .profile_img
     - if current_user.profile&.avatar&.attached?
       = image_tag current_user.profile.avatar, id: 'your-img'
@@ -11,7 +14,7 @@
   #overlay
     #modalWindow
       .modal-message-box
-        = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+        = form_with(model: @profile, url: profile_path, method: 'put') do |f|
           .form_item 
             = f.label :nickname, 'Your Name', class: 'form_ttl'
           .form_item

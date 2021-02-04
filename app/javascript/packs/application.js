@@ -7,7 +7,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require('jquery')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -17,8 +16,11 @@ require('jquery')
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+import $ from 'jquery'
+import axios from 'axios'
+
 document.addEventListener(
-  "DomContentLoaded", e => {
+  "turbolinks:load", e => {
     let modal_open = document.getElementById("your-img");
     modal_open.onclick = function () {
       $('#overlay').fadeIn();
