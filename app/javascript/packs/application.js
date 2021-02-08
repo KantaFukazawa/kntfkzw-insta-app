@@ -18,6 +18,7 @@ require("channels")
 
 import $ from 'jquery'
 import axios from 'axios'
+import { debuglog } from 'util'
 
 document.addEventListener(
   "turbolinks:load", e => {
@@ -31,5 +32,32 @@ document.addEventListener(
         $('#overlay').fadeOut();
       };
     };
-  },
+  }, 
+
+  (function(win, doc){
+    "use district";
+
+    $("form").submit(function(e){
+      e.preventDefault();
+
+      var fd = new FormData($(this)[0]);
+
+      $ajax('/profile/'), {
+        method: "PUT",
+        processData: false,
+        contentData: false,
+        data: fd,
+        dataType: 'json',
+        success: function(json) {
+          var img = $('<img>').attr('src', json.profile_url);
+          $('profile_img').append(img);
+          $('form').find(':submit').attr('disabled', true);
+        },
+        error: function(json) {
+          alert('エラーが発生しました');
+        }
+      }
+    });
+  })(this, document)
 );
+

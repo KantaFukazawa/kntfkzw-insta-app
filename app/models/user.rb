@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+
+  def your_img_exist?
+    avatar.exists?(user_id: user.id)
+  end
 end
