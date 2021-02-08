@@ -6,23 +6,23 @@
         = @profile&.nickname
       - else
         = current_user.name
-  .profile_img
-    - if current_user.profile&.avatar&.attached?
-      = image_tag current_user.profile.avatar, id: 'your-img'
-    - else  
-      = image_tag 'default-avatar.png', id: 'your-img'
+    .profile_img
+      - if current_user.profile&.avatar&.attached?
+        = image_tag current_user.profile.avatar, id: 'your-img'
+      - else  
+        = image_tag 'default-avatar.png', id: 'your-img'
   #overlay
     #modalWindow
       .modal-message-box
-        = form_with(model: @profile, url: profile_path, method: 'put') do |f|
+        = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile-form') do |f|
           .form_item 
             = f.label :nickname, 'Your Name', class: 'form_ttl'
           .form_item
-            = f.text_field :nickname, class: 'form_txt'
+            = f.text_field :nickname, class: 'form_txt', id: 'nickname-form'
           .form_item 
             = f.label :avatar, 'Your Image', class: 'form_ttl'
           .form_item  
-            = f.file_field :avatar, class: 'form_avatar'
+            = f.file_field :avatar, class: 'form_avatar', id: 'form-yourimg'
 
           = f.submit '保存', class: 'btn_primary', id: 'submit-btn'
           %button#modal-close-btn キャンセル
