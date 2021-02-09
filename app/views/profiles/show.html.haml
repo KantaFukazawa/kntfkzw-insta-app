@@ -1,11 +1,11 @@
 .container
   .profile_header
     %a(href="#") ←
-    .your_name
-      - if @profile&.nickname&.present?
-        = @profile&.nickname
-      - else
-        = current_user.name
+    - if @profile&.nickname&.present?
+      %p.your_name
+    - else
+      %p.your_name
+      = current_user.name
     .profile_img
       - if current_user.profile&.avatar&.attached?
         = image_tag current_user.profile.avatar, id: 'your-img'
