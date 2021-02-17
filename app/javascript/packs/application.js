@@ -52,7 +52,7 @@ document.addEventListener(
     })
   
     .done(function(data) {
-      $(".your_name").append("<%=m@profile.nickname%>")
+      $(".your_name").append("<%=@profile.nickname%>")
     })
   })
 );
