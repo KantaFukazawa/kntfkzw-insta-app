@@ -21,7 +21,7 @@ import axios from 'axios'
 import { debuglog } from 'util'
 
 document.addEventListener(
-  "turbolinks:load", e => {
+  "DOMContentLoaded", e => {
     let modal_open = document.getElementById("your-img");
     modal_open.onclick = function () {
       $('#overlay').fadeIn();
@@ -32,6 +32,27 @@ document.addEventListener(
         $('#overlay').fadeOut();
       };
     };
-  }, 
+  },
+  
+  $("#profile-form").on("#submit-btn", function(e) {
+    e.preventDefault();
+    const nickname = $("#nickname-form").val();
+    const avatar = $("#yourimg-form").val()
+    
+    $.ajax({
+      url: "/profile/",
+      type: "PUT",
+      data: {
+        profile: {
+          nickname:nickname,
+          avatar:avatar
+        }
+      },
+      dataType: "json"
+    })
+  
+    .done(function(data) {
+      $(".your_name").append("<%=m@profile.nickname%>")
+    })
+  })
 );
-

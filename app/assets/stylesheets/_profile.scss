@@ -29,13 +29,13 @@
 }
 
 #your-img {
-  margin: 36px 0 0 0;
+  margin: 36px 154px 0;
   width: 76.88px;
   height: 76.88px;
-  text-align: center;
+  max-width: 76.88px;
   object-fit:cover;
   border-radius: 50%;
-  }
+}
 
 .your_status {
   display: flex;
