@@ -1,11 +1,11 @@
-.container
+.container#profile_conteiner{data: {profile_id: @profile.id}}
   .profile_header
     %a(href="#") ←
-    %p.your-name
-    -# - if @profile&.nickname&.present?
-    -#   %p.your_name
-    -# - else
-    -#   %p.your_name
+    .your_name
+    - if @profile&.nickname&.present?
+      %p.your_name
+    - else
+      %p.your_name
       = current_user.name
     - if current_user.profile&.avatar&.attached?
       .your_img

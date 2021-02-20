@@ -31,28 +31,37 @@ document.addEventListener(
       document.getElementById("submit-btn").onclick = function () {
         $('#overlay').fadeOut();
       };
-    };
+    }
+
+    $("#profile-form").on("#submit-btn", function(e) {
+        e.preventDefault();
+        const nickname = $("#nickname-form").val();
+        const avatar = $("#yourimg-form").val();
+        const dataset = $("#profile_container").data();
+        const profileId = dataset.profileId
+        
+        $.ajax({
+          url: `/profile/{profileId}`,
+          type: "PUT",
+          data: {
+            profile: {
+              nickname:nickname,
+              avatar:avatar
+            }
+          },
+          dataType: "json"
+        })
+      })
+
+    axios.get(`/profile/${profileId}`)
+      .then((response) => {
+        debugger
+        const profile = response.data
+
+        $(".your_name").append(`<p><%=@profile.nickname=></p>`)
+        $(".your_img").append(`<p><%=@profile.avatar=></p>`)
+      })
   },
   
-  $("#profile-form").on("#submit-btn", function(e) {
-    e.preventDefault();
-    const nickname = $("#nickname-form").val();
-    const avatar = $("#yourimg-form").val()
-    
-    $.ajax({
-      url: "/profile/",
-      type: "PUT",
-      data: {
-        profile: {
-          nickname:nickname,
-          avatar:avatar
-        }
-      },
-      dataType: "json"
-    })
   
-    .done(function(data) {
-      $(".your_name").append("<%=@profile.nickname%>")
-    })
-  })
 );
