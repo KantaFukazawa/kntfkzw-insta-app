@@ -15,3 +15,22 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import $ from 'jquery'
+import axios from 'axios'
+import { debuglog } from 'util'
+
+document.addEventListener(
+  "DOMContentLoaded", e => {
+    let modal_open = document.getElementById("your-img");
+    modal_open.onclick = function () {
+      $('#overlay').fadeIn();
+      document.getElementById('modal-close-btn').onclick = function () {
+        $('#overlay').fadeOut();
+      };
+      document.getElementById("submit-btn").onclick = function () {
+        $('#overlay').fadeOut();
+      };
+    }
+  } 
+);

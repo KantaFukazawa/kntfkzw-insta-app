@@ -55,8 +55,15 @@
   font-size: 14px;
   line-height: 21px;
   /* identical to box height */
-  text-align: center;
   color: #000000;
   mix-blend-mode: normal;
   opacity: 0.9;
+}
+
+.form_item {
+  padding: 20px 0 0 0;
+}
+
+.form_avatar {
+  margin: 0 0 0 16px;
 }
