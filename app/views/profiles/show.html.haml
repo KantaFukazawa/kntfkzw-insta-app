@@ -3,9 +3,8 @@
     %a(href="#") ←
     .your_name
     - if @profile&.nickname&.present?
-      %p.your_name
+      = @profile&.nickname
     - else
-      %p.your_name
       = current_user.name
     - if current_user.profile&.avatar&.attached?
       .your_img
