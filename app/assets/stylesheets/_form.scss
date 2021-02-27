@@ -67,3 +67,120 @@
 .form_avatar {
   margin: 0 0 0 16px;
 }
+
+.post_modal {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#post-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+ .post_modal_closebtn{
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #2F80ED;
+}
+
+.page_ttl {
+  position: absolute;
+  top: 10px;
+  left: 120px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.post_modal_btn_field {
+  position: absolute;
+  top: 10px;
+  left: 240px;
+  width: 30px;
+}
+
+.post_btn {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #BDBDBD;
+  border: none;  
+  outline: none; 
+  background: transparent; 
+}
+
+.post_modal_avatar_field {
+  position: absolute;
+  top: 111px;
+  left: 16px;
+  height: 40px;
+  width: 40px;
+}
+
+.post_modal_name_field {
+  position: absolute;
+  top: 118px;
+  left: 74px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.post_content_form {
+  position: absolute;
+  top: 195px;
+  left: 16px;
+  width: 270px;
+  padding: 6px 8px;
+  border-bottom: 1px solid #9E9E9E;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+
+}
+
+.post_img_form {
+  display: none;
+}
+
+.img_input_btn {
+  position: absolute;
+  top: 242px;
+  left: 16px;
+  padding: 3px 8px;
+  border: 1px solid #E0E0E0;
+  box-sizing: border-box;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: left;
+
+}
+
