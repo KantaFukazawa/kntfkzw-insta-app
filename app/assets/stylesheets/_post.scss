@@ -12,7 +12,7 @@
 }
 
 .post_item {
-  padding: 43px 0 0 0;
+  padding: 43px 0 50px 0;
 }
 
 .avatar_field {
@@ -55,6 +55,47 @@
   color: #9E9E9E;
 }
 
+.post_setting {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  display: inline-block;
+}
+
+.dropdown_content_mini {
+  font-weight: normal;
+  display: none;
+  right: 0;
+  position: absolute;
+  background-color: white;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+  li {
+    list-style: none;
+  }
+}
+
+.dropdown_content_mini a {
+  padding: 8px 16px;
+  display: block;
+  text-decoration: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: #333333;
+}
+
+.dropdown_content_mini a:hover {
+  background-color: white;
+}
+
+.post_setting:hover .dropdown_content_mini {
+  display: block;
+}
+
 .post_img {
   max-width: 95%;
   margin: 0 auto;
@@ -71,15 +112,15 @@
   }
 }
 
-.fa-heart {
+.heart_btn {
   padding: 0 0 0 17px;
 }
 
-.fa-comment {
+.comment_btn {
   padding: 0 0 0 14px;
 }
 
-.fa-share-alt {
+.share_btn {
   padding: 0 0 0 14px;
 }
 

@@ -8,10 +8,10 @@
       = current_user.name
     - if current_user.profile&.avatar&.attached?
       .your_img
-      = image_tag current_user.profile.avatar, id: 'your-img'
+      = image_tag current_user.profile.avatar, id: 'modalopen'
     - else 
-      .your_img 
-      = image_tag 'default-avatar.png', id: 'your-img'
+      .your_img.modalopen 
+      = image_tag 'default-avatar.png', id: 'modalopen'
   #overlay
     #modalWindow
       .modal-message-box

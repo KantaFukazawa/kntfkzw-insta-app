@@ -1,6 +1,8 @@
 .container
-  %i.fas.fa-camera.post_new_btn
+  %a#modalopen
+    %i.fas.fa-camera.post_new_btn
   .post_items
+  - @posts.each do |post|
     .post_item
       .post_item_header
         .post_user
@@ -11,23 +13,25 @@
               = current_user.name
             .timestamp
               3hours ago
+            %i.fas.fa-ellipsis-v.post_setting
+              .dropdown_content_mini
+                %li
+                  = link_to '削除する', post_path(post.id), method: :delete
       .post_item_inner
-        .post_img
-          = image_tag 'sample.png'
-        %a.post_like
-          %i.far.fa-heart
-        %a.post_comment_btn
-          %i.far.fa-comment
-        %a.post_share
-          %i.fas.fa-share-alt
+        - if post.images.attached?
+          - post.images.each do |image|
+            = image_tag post.images
+        = image_tag 'offheart.png', alt: '', height: '', width: '', class: 'heart_btn'
+        = image_tag 'comment.png', alt: '', height: '', width: '', class: 'comment_btn'
+        = link_to image_tag('share.png', :class => "share_btn"), "https://twitter.com/share?url=#{ request.url }&text=#{ post.user.name }さんの投稿を、Twitterでみんなに広めよう！", title: 'Twitter', target: '_blank'
       .post_item_bottom
         .like_counts
           test and 12,000 other liked your post
         .content_field
           .post_user_name
-            test_user_ctnt
+            = post.user.name
           %p.post_content
-            てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと
+            = post.content
   #overlay
     #modalWindow
       .modal-message-box.post_modal
@@ -41,5 +45,5 @@
           .post_modal_name_field
             = current_user.name
           = f.text_field :content, :placeholder => "What's on your mind ?", class: 'post_content_form'
-          = f.label :image, "+Album", class: 'img_input_btn'
-          = f.file_field :image, class: 'post_img_form'
+          = f.label :images, "+Album", class: 'img_input_btn'
+          = f.file_field :images, class: 'post_img_form', multiple: true
