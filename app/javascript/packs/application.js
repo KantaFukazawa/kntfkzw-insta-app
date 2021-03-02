@@ -22,7 +22,7 @@ import { debuglog } from 'util'
 
 document.addEventListener(
   "DOMContentLoaded", e => {
-    let modal_open = document.getElementById("your-img");
+    let modal_open = document.getElementById("modalopen");
     modal_open.onclick = function () {
       $('#overlay').fadeIn();
       document.getElementById('modal-close-btn').onclick = function () {
