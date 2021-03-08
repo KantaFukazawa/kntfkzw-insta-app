@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @posts = Posts.new
   end
 
   def create
@@ -28,6 +28,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:content, images: [])
+      params.require(:post).permit(:content, images:[])
     end
 end

@@ -96,14 +96,36 @@
   display: block;
 }
 
-.post_img {
-  max-width: 95%;
-  margin: 0 auto;
+.post_img_field {
+  position: relative;
+}
 
-  img {
-    width: 100%;
-    height: 225px;
-  }
+.post_img_first {
+  position: absolute;
+  top: 51px;
+  left: 17px;
+  width: 198px;
+  height: 225px;
+}
+
+.post_img_second {
+  position: absolute;
+  top: 51px;
+  right: 15px;
+  width: 138px;
+  height: 109px;
+}
+
+.post_img_third {
+  position: absolute;
+  top: 167px;
+  right: 15px;
+  width: 138px;
+  height: 109px;
+}
+
+.post_icon_field {
+  margin: 288px 0 0 0;
 }
 
 .post_item {
