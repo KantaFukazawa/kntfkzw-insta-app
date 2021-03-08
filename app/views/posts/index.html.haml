@@ -1,0 +1,51 @@
+.container
+  %a#modalopen
+    %i.fas.fa-camera.post_new_btn
+  .post_items
+  - @posts.each do |post|
+    .post_item
+      .post_item_header
+        .post_user
+          .avatar_field
+            = image_tag current_user.profile.avatar, class: 'post_user_avatar'
+          .post_user_right
+            .name_field
+              = current_user.name
+            .timestamp
+              = post.user.created_at
+            %i.fas.fa-ellipsis-v.post_setting
+              .dropdown_content_mini
+                %li
+                  = link_to '削除する', post_path(post.id), method: :delete
+      .post_img_field
+        - if post.images.attached?
+          = image_tag post.images[0], class:'post_img_first'
+          = image_tag post.images[1], class:'post_img_second'
+          = image_tag post.images[2], class:'post_img_third'
+      .post_icon_field
+        = image_tag 'offheart.png', alt: '', height: '', width: '', class: 'heart_btn'
+        = image_tag 'comment.png', alt: '', height: '', width: '', class: 'comment_btn'
+        = link_to image_tag('share.png', :class => "share_btn"), "https://twitter.com/share?url=#{ request.url }&text=#{ post.user.name }さんの投稿を、Twitterでみんなに広めよう！", title: 'Twitter', target: '_blank'
+      .post_item_bottom
+        .like_counts
+          test and 12,000 other liked your post
+        .content_field
+          .post_user_name
+            = post.user.name
+          %p.post_content
+            = post.content
+  #overlay
+    #modalWindow
+      .modal-message-box.post_modal
+        = form_with(model: @posts, url: posts_path, method: 'post', id:'post-form', local: true) do |f|
+          %a#modal-close-btn.post_modal_closebtn Cancel
+          %p.page_ttl Status
+          .post_modal_btn_field
+            = f.submit 'Post', class: 'post_btn'
+          .post_modal_avatar_field
+            = image_tag current_user.profile.avatar, class: 'post_user_avatar'
+          .post_modal_name_field
+            = current_user.name
+          = f.text_field :content, :placeholder => "What's on your mind ?", class: 'post_content_form'
+          = f.label :images, "+Album", class: 'img_input_btn'
+          = f.file_field :images, class: 'post_img_form', multiple: true
