@@ -23,9 +23,18 @@
           = image_tag post.images[1], class:'post_img_second'
           = image_tag post.images[2], class:'post_img_third'
       .post_icon_field
-        = image_tag 'offheart.png', alt: '', height: '', width: '', class: 'heart_btn'
-        = image_tag 'comment.png', alt: '', height: '', width: '', class: 'comment_btn'
-        = link_to image_tag('share.png', :class => "share_btn"), "https://twitter.com/share?url=#{ request.url }&text=#{ post.user.name }さんの投稿を、Twitterでみんなに広めよう！", title: 'Twitter', target: '_blank'
+        - if current_user.has_liked?(post)
+          .heart_btn
+            = link_to post_like_path(post.id), data: { method: 'delete' } do
+              = image_tag 'offheart.png'
+        - else 
+          .heart_btn
+            = link_to post_like_path(post.id), data: { method: 'post' } do
+              = image_tag 'onheart.png'
+        .comment_btn 
+          = image_tag 'comment.png', alt: '', height: '', width: ''
+        .share_btn
+          = link_to image_tag('share.png'), "https://twitter.com/share?url=#{ request.url }&text=#{ post.user.name }さんの投稿を、Twitterでみんなに広めよう！", title: 'Twitter', target: '_blank'
       .post_item_bottom
         .like_counts
           test and 12,000 other liked your post
