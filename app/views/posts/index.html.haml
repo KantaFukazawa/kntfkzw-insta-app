@@ -36,8 +36,8 @@
         .share_btn
           = link_to image_tag('share.png'), "https://twitter.com/share?url=#{ request.url }&text=#{ post.user.name }さんの投稿を、Twitterでみんなに広めよう！", title: 'Twitter', target: '_blank'
       .post_item_bottom
-        .like_counts
-          test and 12,000 other liked your post
+        %p.like_counts
+          #{post.like_count}いいね
         .content_field
           .post_user_name
             = post.user.name

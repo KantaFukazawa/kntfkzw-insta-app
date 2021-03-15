@@ -135,14 +135,21 @@
 }
 
 .heart_btn {
+  display: inline;
   padding: 0 0 0 17px;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .comment_btn {
+  display: inline;
   padding: 0 0 0 14px;
 }
 
 .share_btn {
+  display: inline;
   padding: 0 0 0 14px;
 }
 
