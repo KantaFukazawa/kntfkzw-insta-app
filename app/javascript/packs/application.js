@@ -32,5 +32,22 @@ document.addEventListener(
         $('#overlay').fadeOut();
       };
     }
-  } 
-);
+
+    const hundleHeartDisplay = (hasLiked) => {
+      if (hasLiked){
+        $('.onheart').removeClass('hidden')
+      }
+      else {
+        $('.offheart').removeClass('hidden')
+      }
+    }
+
+    const dataset = $('#post_show').data()
+    const postId = dataset.postId
+
+    axios.get(`posts/${postId}/like`)
+      .then((response) => {
+        const hasLiked = response.data.hasLiked
+        hundleHeartDisplay = (hasLiked)
+      })
+  })
