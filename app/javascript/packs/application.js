@@ -3,7 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
+// require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
@@ -14,7 +14,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-//= require jquery
+// = require jquery
 
 import $ from 'jquery'
 import axios from 'axios'
@@ -36,29 +36,42 @@ document.addEventListener(
       };
     }
 
-    const hundleHeartDisplay = (hasLiked) => {
-      if (hasLiked){
-        $('.onheart').removeClass('hidden')
-      }
-      else {
-        $('.offheart').removeClass('hidden')
-      }
-    }
-
     const dataset = $('#post_show').data()
     const postId = dataset.postId
 
-    axios.get(`posts/${postId}/like`)
+    axios.get(`/posts/${postId}/like`)
       .then((response) => {
         const hasLiked = response.data.hasLiked
-        hundleHeartDisplay = (hasLiked)
+        if (hasLiked) {
+          $('.onheart').removeClass('hidden')
+        }
+        else {
+          $('.offheart').removeClass('hidden')
+        }
       })
 
-    $('.offheart').on(click, () => {
+    $('.offheart').on('click', () => {
       axios.post(`/posts/${postId}/like`)
+      .then((response) => {
+        if(response.data.status === 'ok') {
+          $('.onheart').removeClass('hidden')
+          $('.offheart').addClass('hidden')
+        }
+      })
+
+        .catch((e) => {
+          window.alert('Error')
+          console.log(e)
+        })
+    })
+
+    $('.onheart').on('click', () => {
+      axios.delete(`/posts/${postId}/like`)
         .then((response) => {
-          debugger
-          console.log(response)
+          if(response.data.status === 'ok') {
+            $('.offheart').removeClass('hidden')
+            $('.onheart').addClass('hidden')
+          }
         })
 
         .catch((e) => {
