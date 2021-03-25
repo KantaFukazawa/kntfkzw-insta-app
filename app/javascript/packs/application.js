@@ -49,13 +49,17 @@ document.addEventListener(
           $('.offheart').removeClass('hidden')
         }
       })
+    
+    const heartbtnId = $('.heart_btn').attr('id')
+    
 
     $('.offheart').on('click', () => {
+      
       axios.post(`/posts/${postId}/like`)
       .then((response) => {
         if(response.data.status === 'ok') {
-          $('.onheart').removeClass('hidden')
-          $('.offheart').addClass('hidden')
+          $(`#${heartbtnId}.onheart`).removeClass('hidden')
+          $(`#${heartbtnId}.offheart`).addClass('hidden')
         }
       })
 
@@ -66,11 +70,12 @@ document.addEventListener(
     })
 
     $('.onheart').on('click', () => {
+
       axios.delete(`/posts/${postId}/like`)
         .then((response) => {
           if(response.data.status === 'ok') {
-            $('.offheart').removeClass('hidden')
-            $('.onheart').addClass('hidden')
+            $(`#${heartbtnId}.offheart`).removeClass('hidden')
+            $(`#${heartbtnId}.onheart`).addClass('hidden')
           }
         })
 
