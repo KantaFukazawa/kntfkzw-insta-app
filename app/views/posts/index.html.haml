@@ -23,10 +23,16 @@
           = image_tag post.images[1], class:'post_img_second'
           = image_tag post.images[2], class:'post_img_third'
       .post_icon_field
-        .heart_btn.hidden.offheart{id: "#{post.id}"}
-          = image_tag 'offheart.png'
-        .heart_btn.hidden.onheart{id: "#{post.id}"}
-          = image_tag 'onheart.png'
+        - if user_signed_in? && current_user.has_liked?(post)
+          .heart_btn.hidden.offheart{id: "#{post.id}"}
+            = image_tag 'offheart.png'
+          .heart_btn.onheart{id: "#{post.id}"}
+            = image_tag 'onheart.png'
+        - else
+          .heart_btn.offheart{id: "#{post.id}"}
+            = image_tag 'offheart.png'
+          .heart_btn.hidden.onheart{id: "#{post.id}"}
+            = image_tag 'onheart.png'
         .comment_btn 
           = image_tag 'comment.png', alt: '', height: '', width: ''
         .share_btn

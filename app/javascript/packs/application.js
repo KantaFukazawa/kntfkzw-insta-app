@@ -38,28 +38,30 @@ document.addEventListener(
 
     const dataset = $('#post_show').data()
     const postId = dataset.postId
-
-    axios.get(`/posts/${postId}/like`)
-      .then((response) => {
-        const hasLiked = response.data.hasLiked
-        if (hasLiked) {
-          $('.onheart').removeClass('hidden')
-        }
-        else {
-          $('.offheart').removeClass('hidden')
-        }
-      })
-    
-    const heartbtnId = $('.heart_btn').attr('id')
     
 
-    $('.offheart').on('click', () => {
-      
+    // axios.get(`/posts/${postId}/like`)
+    //   .then((response) => {
+    //     const hasLiked = response.data.hasLiked
+    //     if (hasLiked) {
+    //       $(`.onheart` ).removeClass('hidden')
+    //     }
+    //     else {
+    //       $(`.offheart`).removeClass('hidden')
+    //     }
+    //   })
+    
+    
+    
+
+    $('.offheart').on('click', function() {
+      const postId = $(this).attr('id')
+
       axios.post(`/posts/${postId}/like`)
       .then((response) => {
         if(response.data.status === 'ok') {
-          $(`#${heartbtnId}.onheart`).removeClass('hidden')
-          $(`#${heartbtnId}.offheart`).addClass('hidden')
+          $(this).addClass('hidden')
+          $(`#${postId}.onheart`).removeClass('hidden')
         }
       })
 
@@ -69,13 +71,14 @@ document.addEventListener(
         })
     })
 
-    $('.onheart').on('click', () => {
+    $('.onheart').on('click', function() {
+      const postId = $(this).attr('id')
 
       axios.delete(`/posts/${postId}/like`)
         .then((response) => {
           if(response.data.status === 'ok') {
-            $(`#${heartbtnId}.offheart`).removeClass('hidden')
-            $(`#${heartbtnId}.onheart`).addClass('hidden')
+            $(this).addClass('hidden')
+            $(`#${postId}.offheart`).removeClass('hidden') 
           }
         })
 
@@ -84,4 +87,5 @@ document.addEventListener(
           console.log(e)
         })
     })
+    
   })
