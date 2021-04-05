@@ -1,0 +1,116 @@
+.comment_container {
+  position: relative;
+}
+
+.cmnt_closebtn {
+  position: absolute;
+  width: 100px;
+  top: 30px;
+  left: 17px;
+  text-decoration: none;
+  color: #333;
+}
+
+.cmnt_page_ttl {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  position: absolute;
+  top: 30px;
+  left: 146px;
+  align-items: center;
+  text-align: center;
+  color: #333A42;
+}
+
+.cmnt_user_items { 
+  padding: 122px 0 0 16px;
+}
+
+.cmnt_user_item {
+  position: relative;
+}
+
+.cmnt_user_avatar {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  object-fit:cover;
+  border-radius: 50%;
+}
+
+.cmnt_name_field {
+  position: absolute;
+  left: 50px;
+  top: -7px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+  color: #414040;
+}
+
+.cmnt_text_field {
+  position: absolute;
+  left: 50px;
+  top: 19px;
+  margin-right: 33px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #9B9B9B;
+}
+
+.cmnt_form_field {
+  height: 42px;
+  width: 343px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  bottom: 20px;
+  left: 16px;
+}
+
+.cmnt_icon {
+  height: 17px;
+  width: 19px;
+  position: absolute;
+  top: 12px;
+  left: 21px;
+}
+
+.cmnt_content_form {
+  width: 280px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #9B9B9B;
+  border: none;
+  position: absolute;
+  top: 10px;
+  left: 55px;
+}
+
+.cmnt_submit_btn {
+  width: 73px;
+  height: 24px;
+  display: none;
+  border: 1px solid #E0E0E0;
+  box-sizing: border-box;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #4F4F4F;
+}
