@@ -31,6 +31,8 @@
 
 .cmnt_user_item {
   position: relative;
+  height: 100px;
+  width: 120px;
 }
 
 .cmnt_user_avatar {
@@ -88,7 +90,8 @@
 }
 
 .cmnt_content_form {
-  width: 280px;
+  width: 200px;
+  overflow: scroll;
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
@@ -104,13 +107,15 @@
 .cmnt_submit_btn {
   width: 73px;
   height: 24px;
-  display: none;
-  border: 1px solid #E0E0E0;
+  border: none;
   box-sizing: border-box;
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
-  color: #4F4F4F;
+  color: #BDBDBD;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
