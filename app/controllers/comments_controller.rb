@@ -1,17 +1,17 @@
 class CommentsController < ApplicationController
 
   def index
-    @comment = Comment.all
     post = Post.find(params[:post_id])
     @comment = post.comments.build
-    @comments = post.comments
-    @comments = post.comments.order(created_at: :desc)
+    comments = post.comments
+    render json: comments
   end
 
   def create
     post = Post.find(params[:post_id])
     @comment = post.comments.build(comment_params)
     @comment.save!
+    render json: @comment
   end
 
   def destroy

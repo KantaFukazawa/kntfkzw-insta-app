@@ -1,4 +1,4 @@
-= form_with(model: @comment, url: post_comments_path(params[:post_id]), method:'post', class: 'comment_form') do |f|
+= form_with(model: @comment, url: post_comments_path(params[:post_id]), method:'post', class: 'comment_form', id: 'new_comment', remote: true) do |f|
   .cmnt_form_field
     = image_tag 'comment.png', class: 'cmnt_icon'
     = f.text_field :content, class: 'cmnt_content_form'
