@@ -14,7 +14,6 @@ class User < ApplicationRecord
   end
 
   def author_name
-    binding.pry
     user.display_name
   end
 end
