@@ -1,0 +1,13 @@
+.container.comment_container
+  = link_to '←', posts_path, class:'cmnt_closebtn'
+  %p.cmnt_page_ttl Comment
+  #cmnt_user_items
+    - @comments.each do |comment|
+      .cmnt_user_item
+        .cmnt_avatar_field
+          = image_tag  comment.user.profile.avatar, class: 'cmnt_user_avatar'
+        .cmnt_name_field
+          = comment.user.name
+        .cmnt_text_field
+          = comment.content
+  = render 'form', comment: @comment

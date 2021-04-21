@@ -34,7 +34,7 @@
           .heart_btn.hidden.onheart{id: "#{post.id}"}
             = image_tag 'onheart.png'
         .comment_btn 
-          = image_tag 'comment.png', alt: '', height: '', width: ''
+          = link_to image_tag('comment.png'), post_comments_path(post.id)
         .share_btn
           = link_to image_tag('share.png'), "https://twitter.com/share?url=#{ request.url }&text=#{ post.user.name }さんの投稿を、Twitterでみんなに広めよう！", title: 'Twitter', target: '_blank'
       .post_item_bottom
@@ -48,7 +48,7 @@
   #overlay
     #modalWindow
       .modal-message-box.post_modal
-        = form_with(model: @posts, url: posts_path, method: 'post', id:'post-form', local: true) do |f|
+        = form_with(model: @posts, url: posts_path, method: 'post', id:'post-form') do |f|
           %a#modal-close-btn.post_modal_closebtn Cancel
           %p.page_ttl Status
           .post_modal_btn_field
@@ -60,3 +60,4 @@
           = f.text_field :content, :placeholder => "What's on your mind ?", class: 'post_content_form'
           = f.label :images, "+Album", class: 'img_input_btn'
           = f.file_field :images, class: 'post_img_form', multiple: true
+  
