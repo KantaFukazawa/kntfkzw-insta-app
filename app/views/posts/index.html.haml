@@ -48,7 +48,7 @@
   #overlay
     #modalWindow
       .modal-message-box.post_modal
-        = form_with(model: @posts, url: posts_path, method: 'post', id:'post-form', local: true) do |f|
+        = form_with(model: @posts, url: posts_path, method: 'post', id:'post-form') do |f|
           %a#modal-close-btn.post_modal_closebtn Cancel
           %p.page_ttl Status
           .post_modal_btn_field

@@ -14,7 +14,8 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-// = require jquery
+//= require jquery
+//= require jquery_ujs
 
 import $ from 'jquery'
 import axios from 'axios'
@@ -73,29 +74,45 @@ document.addEventListener(
           console.log(e)
         })
     })
-
-    // const HTMLDocument = `
-    // <div class="cmnt_user_item">
-    //   <div class="cmnt_avatar_field">
-    //     ${comment.user.profile.avatar}
-    //   </div>
-    //   <div class="cmnt_name_field">
-    //     ${comment.user.name}
-    //   </div>
-    //   <div class="cmnt_text_field">
-    //     ${comment.content}
-    //   </div>
-    // </div>`
+        
+    const appendNewComment = (comment) => {
+      $('#cmnt_user_items').append(
+        `<div class="cmnt_user_item">
+          <div class="cmnt_avatar_field">
+            ${comment.user.avatar_url}
+          </div>
+          <div class="cmnt_name_field">
+            ${comment.user.name}
+          </div>
+          <div class="cmnt_text_field">
+            ${comment.content}
+          </div>
+        </div>`
+      )
+    }
 
     axios.get(`/posts/${postId}/comments`)
-      .then(function(response) {
+      .then((response) => {
+        debugger
         const comments = response.data
         comments.forEach((comment) => {
-          $('.cmnt_user_items').append(
-          `<div class="cmnt_text_field">
-            <p>${comment.content}</p>
-          </div>`
-          )
+          appendNewComment(comment)
+        })
       })
+ 
+    $('cmnt_submit_btn').on('click', () => {
+      const content = $('#comment_content').val()
+      if (!content) {
+        window.alert('コメントを入れて下さい。')
+      } else {
+        axios.post(`/posts/${postId}/comments`, {
+          comment: {content: content}
+        })
+        .then((res) => {
+          const comment = res.data
+          appendNewComment(comment)
+        })
+      }
+
     })
   })
